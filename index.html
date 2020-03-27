@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>Dam break simulation</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+</head>
+
+<body>
+    <div id="chartDiv">
+        <canvas id="chart" width="500" height="400" style="border:1px solid">
+        </canvas>
+    </div>
+    <div>
+        <div>
+            <label for="xRange">X_max (m)</label>
+            <input type="range" min=1 max=100000 value=100 class="slider" id="xRange"
+                oninput='document.getElementById("xRangeVal").innerHTML=this.value'>
+            <label id="xRangeVal">100</label>
+        </div>
+        <div>
+            <label for="delX">delX (m)</label>
+            <input type="range" min=0.1 max=10000 value=2 step=0.1 class="slider" id="delX"
+                oninput='document.getElementById("delXVal").innerHTML=this.value'>
+            <label id="delXVal">2</label>
+        </div>
+        <div>
+            <label for="maxT">Simulation time (s)</label>
+            <input type="range" min=1 max=100000 value=100 class="slider" id="maxT"
+                oninput='document.getElementById("maxTVal").innerHTML=this.value'>
+            <label id="maxTVal">100</label>
+        </div>
+        <div>
+            <label for="delT">delT (s)</label>
+            <input type="range" min=0.0001 max=1000 value=0.01 step=0.0001 class="slider" id="delT"
+                oninput='document.getElementById("delTVal").innerHTML=this.value'>
+            <label id="delTVal">0.01</label>
+        </div>
+        <div>
+            <label for="y0">Reservoir water depth (m)</label>
+            <input type="range" min=0 max=1000 value=10 class="slider" id="y0"
+                oninput='document.getElementById("y0Val").innerHTML=this.value'>
+            <label id="y0Val">10</label>
+        </div>
+        <div>
+            <label for="delayMs">Delay between subsequent graphs (ms)</label>
+            <input type="range" min=10 max=1000 value=10 class="slider" id="delayMs"
+                oninput='document.getElementById("delayMsVal").innerHTML=this.value'>
+            <label id="delayMsVal">10</label>
+        </div>
+        <div>
+            <input type="button" value="Calculate" id="calculate" onClick="updateGraph()">
+        </div>
+
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
